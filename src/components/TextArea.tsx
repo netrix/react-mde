@@ -53,6 +53,8 @@ export interface TextAreaProps {
   onPaste: React.ClipboardEventHandler;
   onDrop: React.DragEventHandler;
 
+  invisible: boolean;   // Make component invisible
+
   /**
    * Custom textarea component. "textAreaComponent" can be any React component which
    * props are a subset of the props of an HTMLTextAreaElement
