@@ -372,7 +372,8 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       suggestionsDropdownClasses,
       textAreaComponent,
       onPaste,
-      onDrop
+      onDrop,
+      invisible
     } = this.props;
 
     const suggestionsEnabled =
@@ -391,7 +392,7 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     const heightVal = height && heightUnits ? height + heightUnits : height;
 
     return (
-      <div className="mde-textarea-wrapper">
+      <div className={classNames({ invisible: invisible }, "mde-textarea-wrapper")}>
         <TextAreaComponent
           className={classNames("mde-text", classes)}
           style={{ height: heightVal }}

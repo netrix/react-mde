@@ -227,42 +227,41 @@ export class ReactMde extends React.Component<ReactMdeProps, ReactMdeState> {
           writeButtonProps={finalChildProps.writeButton}
           previewButtonProps={finalChildProps.previewButton}
         />
-        <div className={classNames({ invisible: selectedTab !== "write" })}>
-          <TextArea
-            classes={classes?.textArea}
-            suggestionsDropdownClasses={classes?.suggestionsDropdown}
-            suggestionsAutoplace={this.props.suggestionsAutoplace}
-            refObject={this.finalRefs.textarea}
-            onChange={this.handleTextChange}
-            onPaste={this.handlePaste}
-            onDrop={this.handleDrop}
-            readOnly={readOnly}
-            textAreaComponent={textAreaComponent}
-            textAreaProps={childProps && childProps.textArea}
-            height={this.state.editorHeight}
-            heightUnits={this.props.heightUnits}
-            value={value}
-            suggestionTriggerCharacters={suggestionTriggerCharacters}
-            loadSuggestions={loadSuggestions}
-            onPossibleKeyCommand={
-              this.commandOrchestrator.handlePossibleKeyCommand
-            }
-          />
-          {this.props.paste && (
-            <label className={classNames("image-tip")}>
-              <input
-                className={classNames("image-input")}
-                type="file"
-                accept={this.props.paste.accept ?? pasteOptionDefaults.accept}
-                multiple={
-                  this.props.paste.multiple ?? pasteOptionDefaults.multiple
-                }
-                onChange={this.handleImageSelection}
-              />
-              <span>{l18n.pasteDropSelect}</span>
-            </label>
-          )}
-        </div>
+        <TextArea
+          classes={classes?.textArea}
+          suggestionsDropdownClasses={classes?.suggestionsDropdown}
+          suggestionsAutoplace={this.props.suggestionsAutoplace}
+          refObject={this.finalRefs.textarea}
+          onChange={this.handleTextChange}
+          onPaste={this.handlePaste}
+          onDrop={this.handleDrop}
+          readOnly={readOnly}
+          textAreaComponent={textAreaComponent}
+          textAreaProps={childProps && childProps.textArea}
+          height={this.state.editorHeight}
+          heightUnits={this.props.heightUnits}
+          value={value}
+          suggestionTriggerCharacters={suggestionTriggerCharacters}
+          loadSuggestions={loadSuggestions}
+          onPossibleKeyCommand={
+            this.commandOrchestrator.handlePossibleKeyCommand
+          }
+          invisible={selectedTab !== "write"}
+        />
+        {this.props.paste && (
+          <label className={classNames("image-tip")}>
+            <input
+              className={classNames("image-input")}
+              type="file"
+              accept={this.props.paste.accept ?? pasteOptionDefaults.accept}
+              multiple={
+                this.props.paste.multiple ?? pasteOptionDefaults.multiple
+              }
+              onChange={this.handleImageSelection}
+            />
+            <span>{l18n.pasteDropSelect}</span>
+          </label>
+        )}
         {selectedTab !== "write" && (
           <Preview
             classes={classes?.preview}
