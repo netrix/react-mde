@@ -23,9 +23,9 @@ module.exports = {
             {
                 test: /\.ts(x?)/,
                 use: {
-                    loader: 'awesome-typescript-loader',
+                    loader: 'ts-loader',
                     options: {
-                        configFileName: "tsconfig.demo.prod.json"
+                        configFile: "tsconfig.demo.prod.json"
                     },
                 },
                 exclude: /node_modules/,

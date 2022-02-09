@@ -10,7 +10,7 @@ module.exports = {
         exclude: [/node_modules/],
         use: [
           {
-            loader: "awesome-typescript-loader",
+            loader: "ts-loader",
             options: {
               // skip typechecking for speed
               transpileOnly: true

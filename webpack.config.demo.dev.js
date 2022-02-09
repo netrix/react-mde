@@ -21,7 +21,7 @@ module.exports = {
 
     module: {
         rules: [
-            { test: /\.ts(x?)/, use: ['awesome-typescript-loader'], exclude: /node_modules/ },
+            { test: /\.ts(x?)/, use: ['ts-loader'], exclude: /node_modules/ },
             {test: /\.css/, use: ['style-loader', 'css-loader']},
             {
                 test: /\.scss$/, use: [
